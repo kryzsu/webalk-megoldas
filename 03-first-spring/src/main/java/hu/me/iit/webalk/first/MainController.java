@@ -1,22 +1,61 @@
 package hu.me.iit.webalk.first;
 
-import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
+
+@RestController
+@RequestMapping("articles")
 public class MainController {
-	
-	@GetMapping(path="/", produces= MediaType.APPLICATION_JSON_VALUE)
-	@ResponseBody
-	ResponseDto gyoker() {
-		ResponseDto responseDto = new ResponseDto();
-		
-		responseDto.setId(123);
-		responseDto.setMessage("hello");
-		return responseDto;
+
+	private final List<Article> articles = new ArrayList<>();
+
+
+	@GetMapping("")
+	public List<Article> getAllArticles() {
+		return articles;
 	}
 
+	@GetMapping("/{id}")
+	public Article getArticle(@PathVariable("id") String id) {
+		for (Article ar: articles ) {
+			if (ar.getId().equals(id)) {
+				return ar;
+			}
+		}
+		return null;
+	}
+
+	@PostMapping("")
+	public void newArticle(@RequestBody @Valid Article article) {
+		articles.add(article);
+	}
+
+	@PutMapping("/{id}")
+	public void replaceArticle(@PathVariable("id") String id,
+						@RequestBody @Valid Article article) {
+		for (Article ar: articles ) {
+			if (ar.getId().equals(id)) {
+				ar.setAuthor(article.getAuthor());
+				ar.setAge(article.getAge());
+			}
+		}
+	}
+
+	@DeleteMapping ("/{id}")
+	public void deleteArticle(@PathVariable("id") String id) {
+		int found = -1;
+
+		for (int i = 0; i < articles.size(); i++) {
+			if (articles.get(i).getId().equals(id)) {
+				found = i;
+			}
+		}
+
+		if (found != -1) {
+			articles.remove(found);
+		}
+	}
 }
