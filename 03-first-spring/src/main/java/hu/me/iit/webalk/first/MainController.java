@@ -3,7 +3,6 @@ package hu.me.iit.webalk.first;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +17,7 @@ public class MainController {
 	}
 
 	@PostMapping(path="")
-	public void newArticle(@Valid @RequestBody ArticleDto articleDto) {
+	public void newArticle(@RequestBody ArticleDto articleDto) {
 		articles.add(articleDto);
 	}
 
@@ -35,7 +34,7 @@ public class MainController {
 
 	@PutMapping(path="/{id}")
 	public void replaceArticle(@PathVariable("id") String id,
-						@RequestBody @Valid ArticleDto articleDto) {
+						@RequestBody ArticleDto articleDto) {
 		int found = findArticleById(id);
 
 		if (found != -1) {
