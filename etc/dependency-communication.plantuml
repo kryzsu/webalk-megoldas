@@ -1,0 +1,8 @@
+@startuml
+
+Controler -> ServiceImpl: calculate
+ServiceImpl -> DependencyImpl: help
+DependencyImpl --> ServiceImpl
+ServiceImpl --> Controler
+
+@enduml

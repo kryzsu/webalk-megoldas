@@ -31,7 +31,7 @@ mockito
 ```xml
 <dependency>
     <groupId>org.mockito</groupId>
-    <artifactId>mockito‚àícore</artifactId>
+    <artifactId>mockito.core</artifactId>
     <version>1.9.0</version>
     <scope>test</scope>
 </dependency>

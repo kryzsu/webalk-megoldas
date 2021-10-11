@@ -1,0 +1,12 @@
+@startuml
+package otherlayer{
+ interface Dependency
+ class DependencyImpl
+}
+
+DependencyImpl .up.|> Dependency
+
+class ServiceImpl
+
+ServiceImpl *-right- Dependency
+@enduml
