@@ -20,4 +20,9 @@ public class ServiceImpl implements Service {
     public int callHelpAndUseReturnValue() {
         return dependency.helpNoParameterReturnValue();
     }
+
+    public void callHelpAndPassParameter5() {
+         dependency.helpWithParameterNoReturnValue(5);
+    }
+
 }

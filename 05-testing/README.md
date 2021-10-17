@@ -205,11 +205,22 @@ waterSourceMock.doSelfCheck();
 verify(waterSourceMock).doSelfCheck();
 ```
 
-checking the sub invocation:
+Checking the sub invocation:
 
 * never called : `verify(waterSourceMock, never()).doSelfCheck();`
 * exactly once : `verify(waterSourceMock, times(1)).doSelfCheck();`
 * at least once : `verify(waterSourceMock, atLeastOnce()).doSelfCheck();`
+
+Checking the parameter of method invocation
+
+```java
+ArgumentCaptor<Integer> captor = ArgumentCaptor.forClass(Integer.class);
+
+verify(dependency, times(1)).helpWithParameterNoReturnValue(captor.capture());
+assertEquals(FIVE,captor.getValue());
+```
+
+
 
 # References
 

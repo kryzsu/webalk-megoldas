@@ -8,4 +8,9 @@ public class DependencyImpl implements Dependency {
     public int helpNoParameterReturnValue() {
         return 45;
     }
+
+    @Override
+    public void helpWithParameterNoReturnValue(int a) {
+
+    }
 }

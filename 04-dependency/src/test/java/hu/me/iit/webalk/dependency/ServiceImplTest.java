@@ -2,6 +2,7 @@ package hu.me.iit.webalk.dependency;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -28,7 +29,7 @@ class ServiceImplTest {
     }
 
     @Test
-    void return5() {
+    void return5Test() {
         // GIVEN
         final int FIVE = 5;
 
@@ -40,7 +41,9 @@ class ServiceImplTest {
     }
 
     @Test
-    void dependencyReturnValueIsUsed() {
+    // Is the service calls the dependency?
+    // Is the return value of dependency method used?
+    void dependencyReturnValueIsUsedTest() {
         // GIVEN
         final int FIVE = 5;
 
@@ -52,5 +55,23 @@ class ServiceImplTest {
         // THEN
         verify(dependency, times(1)).helpNoParameterReturnValue();
         assertEquals(FIVE, result);
+    }
+
+
+    @Test
+        // Is the service calls the dependency?
+        // Is the parameter of dependency method appropriate?
+    void callHelpAndPassParameter5Test() {
+        // GIVEN
+        final int FIVE = 5;
+
+        // WHEN
+        service.callHelpAndPassParameter5();
+
+        // THEN
+        ArgumentCaptor<Integer> captor = ArgumentCaptor.forClass(Integer.class);
+
+        verify(dependency, times(1)).helpWithParameterNoReturnValue(captor.capture());
+        assertEquals(FIVE,captor.getValue());
     }
 }
