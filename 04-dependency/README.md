@@ -61,7 +61,8 @@ The above implementation provides
 
 # Unit testing
 
-In the case of following scenario:
+In the case of following scenario
+
 ![dependency usage](https://www.planttext.com/api/plantuml/svg/SoWkIImgAStDuU9opiyhAShFIIrIqBLJ24ujAijCJlNCBSYnKaXEp4akpKaiIUL24WQfSaajICrBISrBheGep4ZDAU125LJGHJKDrGYW7DnQBYu7e3wWKm00)
 
 the service use (call the method of dependency).
@@ -92,4 +93,4 @@ class ServiceImpl {
 }
 ```
 
-
+https://www.baeldung.com/mockito-verify
