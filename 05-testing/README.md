@@ -226,3 +226,6 @@ assertEquals(FIVE,captor.getValue());
 
 * https://site.mockito.org/
 * https://dzone.com/refcardz/mockito
+* https://dzone.com/articles/the-benefit-of-using-assertthat-over-other-assert
+* https://www.vogella.com/tutorials/Hamcrest/article.html
+* http://hamcrest.org/JavaHamcrest/tutorial
