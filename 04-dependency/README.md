@@ -93,4 +93,24 @@ class ServiceImpl {
 }
 ```
 
+# Practice
+
+- Service method: 
+```java
+String getImportantAbstract(String name)
+```
+
+  - truncates the name 
+  - extend it with '...'
+  - f.e. "longMessage" -> "lon..."
+
+calls the dependency 
+```java
+String important(String text)
+```
+the important method of dependency creates
+
+- html bold text
+- f.e "text" -> "<b>text</b>"
+
 https://www.baeldung.com/mockito-verify

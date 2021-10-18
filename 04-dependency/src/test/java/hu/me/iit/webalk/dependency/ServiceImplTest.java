@@ -69,9 +69,11 @@ class ServiceImplTest {
         service.callHelpAndPassParameter5();
 
         // THEN
-        ArgumentCaptor<Integer> captor = ArgumentCaptor.forClass(Integer.class);
+        ArgumentCaptor<Integer> captor =
+                ArgumentCaptor.forClass(Integer.class);
 
-        verify(dependency, times(1)).helpWithParameterNoReturnValue(captor.capture());
+        verify(dependency, times(1))
+                .helpWithParameterNoReturnValue(captor.capture());
         assertEquals(FIVE,captor.getValue());
     }
 }
