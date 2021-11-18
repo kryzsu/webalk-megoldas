@@ -13,5 +13,6 @@
 		    <module>02-szamologepszervlet</module>
 		    <module>03-first-spring</module>
 		    <module>04-dependency</module>
+		    <module>06-data</module>
     </modules>
 </project>

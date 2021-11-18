@@ -1,10 +1,15 @@
 package hu.me.iit.webalk.dependency;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Value;
 
-@Component
 public class ServiceImpl implements Service {
     private final Dependency dependency;
+    private String value;
+
+    @Value("${sajat-cucc}")
+    public void setValue(String value) {
+        this.value = value;
+    }
 
     public ServiceImpl(Dependency dependency) {
         this.dependency = dependency;
@@ -13,6 +18,11 @@ public class ServiceImpl implements Service {
     @Override
     public void calculate() {
         dependency.helpNoParameterNoReturnValue();
+    }
+
+    @Override
+    public String getValue() {
+        return value;
     }
 
 
